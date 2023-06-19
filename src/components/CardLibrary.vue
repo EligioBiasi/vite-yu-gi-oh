@@ -42,5 +42,6 @@ export default {
         padding: 1rem;
         display: flex;
         flex-wrap: wrap;
+        background-color: white;
     }
 </style>
