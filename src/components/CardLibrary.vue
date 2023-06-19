@@ -2,7 +2,7 @@
     <div class="container">
         <div class="counter-bar">
             <h3>
-                found 25 cards
+                Found {{CardLibrary.length}} cards
             </h3>
         </div>
         <div class="card-section">
