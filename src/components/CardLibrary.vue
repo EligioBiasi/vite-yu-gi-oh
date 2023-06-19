@@ -1,10 +1,17 @@
 <template >
     <div class="container">
-        <SingleCard v-for="card in CardLibrary"
-        :monsterName="card.name"
-        :monsterType="card.archetype"
-        :monsterImage="card.card_images[0].image_url"
-        />
+        <div class="counter-bar">
+            <h3>
+                found 25 cards
+            </h3>
+        </div>
+        <div class="card-section">
+            <SingleCard v-for="card in CardLibrary"
+            :monsterName="card.name"
+            :monsterType="card.archetype"
+            :monsterImage="card.card_images[0].image_url"
+            />
+        </div>
     </div>
 </template>
 <script>
@@ -40,8 +47,18 @@ export default {
         width: 1100px;
         margin: 0 auto;
         padding: 1rem;
+    }
+
+    div.card-section{
         display: flex;
         flex-wrap: wrap;
         background-color: white;
+    }
+    div.counter-bar{
+        background-color: black;
+        h3{
+            color: white;
+            padding: 1rem;
+        }
     }
 </style>
