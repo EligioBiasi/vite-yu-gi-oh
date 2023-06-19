@@ -1,8 +1,6 @@
 <template >
     <div class="container">
-        <div>
-
-        </div>
+        <SingleCard v-for="card in CardLibrary"/>
     </div>
 </template>
 <script>
@@ -22,8 +20,9 @@ export default {
 
     created(){
         axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
-  .then(function (response) {
-    console.log(response);
+  .then( (response) => {
+    console.log(response.data.data);
+    this.CardLibrary = response.data.data;
   })
   .catch(function (error) {
     console.log(error);
@@ -36,5 +35,8 @@ export default {
     div.container{
         width: 1100px;
         margin: 0 auto;
+        padding: 1rem;
+        display: flex;
+        flex-wrap: wrap;
     }
 </style>
