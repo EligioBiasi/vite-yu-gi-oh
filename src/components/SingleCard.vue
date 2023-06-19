@@ -1,11 +1,14 @@
 <template >
     <div class="card">
-        <img src="https://www.calabriamagnifica.it/wp-content/uploads/2023/03/imagine-john-lennon.jpg" alt="">
+        <img :src="monsterImage" alt="#">
+
         <h2>
-            prova
+            {{ monsterName }}
         </h2>
+
         <p>
-            altra prova
+            {{ monsterType }}
+            
         </p>
     </div>
 </template>
@@ -17,6 +20,12 @@ export default {
 
         }
     },
+
+    props:{
+        monsterName: String,
+        monsterType: String,
+        monsterImage: String,
+    }
 }
 </script>
 <style lang="scss" scoped>
@@ -24,8 +33,11 @@ export default {
         width: calc(100%/5);
         background-color: white;
         padding: 1rem;
-        
 
+        h2{
+            color: white;
+            text-transform: uppercase;
+        }
         h2,p{
             background-color: #d48f38;
             padding: 1rem 0;

@@ -1,6 +1,10 @@
 <template >
     <div class="container">
-        <SingleCard v-for="card in CardLibrary"/>
+        <SingleCard v-for="card in CardLibrary"
+        :monsterName="card.name"
+        :monsterType="card.archetype"
+        :monsterImage="card.card_images[0].image_url"
+        />
     </div>
 </template>
 <script>
