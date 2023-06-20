@@ -59,7 +59,7 @@ export default {
             archetype: this.store.ArchetypeName,
           },
         })
-        .then((response) => (this.store.cardList = response.data.data));
+        .then((response) => (this.CardLibrary = response.data.data));
     },
   },
 
