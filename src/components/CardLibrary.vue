@@ -1,5 +1,8 @@
 <template >
     <div class="container">
+        <div>
+            <ArchetypeSearch />
+        </div>
         <div class="counter-bar">
             <h3>
                 Found {{CardLibrary.length}} cards
@@ -16,6 +19,7 @@
 </template>
 <script>
 import SingleCard from './SingleCard.vue';
+import ArchetypeSearch from './ArchetypeSearch.vue';
 import axios from 'axios';
 
 export default {
@@ -23,21 +27,25 @@ export default {
     data(){
         return {
             CardLibrary:[],
+            ArchetypeLibrary:[],
         }
     },
     components:{
         SingleCard,
+        ArchetypeSearch,
     },
 
     created(){
         axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
-  .then( (response) => {
-    console.log(response.data.data);
-    this.CardLibrary = response.data.data;
-  })
-  .catch(function (error) {
-    console.log(error);
-  })
+        .then( (response) => {
+            this.CardLibrary = response.data.data;
+        });
+
+        axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+        .then( (response) => {
+            this.ArchetypeLibrary = response.data ;
+            console.log(response.data);
+        });
     }
 
 }
