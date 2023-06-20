@@ -21,13 +21,14 @@
 import SingleCard from './SingleCard.vue';
 import ArchetypeSearch from './ArchetypeSearch.vue';
 import axios from 'axios';
+import { store } from "../store.js";
 
 export default {
     name:'CardLibrary',
     data(){
         return {
             CardLibrary:[],
-            ArchetypeLibrary:[],
+            store,
         }
     },
     components:{
@@ -43,7 +44,7 @@ export default {
 
         axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
         .then( (response) => {
-            this.ArchetypeLibrary = response.data ;
+            this.store.ArchetypeLibrary = response.data ;
             console.log(response.data);
         });
     }

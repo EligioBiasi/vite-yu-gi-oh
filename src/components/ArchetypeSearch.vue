@@ -1,15 +1,34 @@
 <template>
     <select name="" id="">
-        
+        <option >
+            select archetype
+        </option>
+
+        <option value="" v-for="archetype in store.ArchetypeLibrary ">
+            {{ archetype.archetype_name }}
+        </option>
+
+
+
     </select>
 </template>
 
 <script>
+import { store } from "../store.js";
+
 export default {
-    
+    data(){
+        return {
+            store,
+        }
+    },
 }
 </script>
 
 <style lang="scss" scoped>
-    
+    select{
+        margin-bottom: 1rem;
+        width: 150px;
+        height: 20px;
+    }
 </style>
