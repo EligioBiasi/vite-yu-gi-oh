@@ -1,6 +1,6 @@
 <template>
-    <select name="" id="">
-        <option >
+    <select name="" id="" v-model="store.ArchetypeName" @change="emitSearch">
+        <option>
             select archetype
         </option>
 
@@ -22,6 +22,12 @@ export default {
             store,
         }
     },
+
+    methods: {
+    emitSearch() {
+      this.$emit("Search");
+    },
+  },
 }
 </script>
 

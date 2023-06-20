@@ -1,7 +1,7 @@
 <template >
     <div class="container">
         <div>
-            <ArchetypeSearch />
+            <ArchetypeSearch @Search="requestDataFromApi"/>
         </div>
         <div class="counter-bar">
             <h3>
@@ -47,7 +47,21 @@ export default {
             this.store.ArchetypeLibrary = response.data ;
             console.log(response.data);
         });
-    }
+    },
+
+    methods: {
+    requestDataFromApi() {
+      axios
+        .get("https://db.ygoprodeck.com/api/v7/cardinfo.php", {
+          params: {
+            num: 20,
+            offset: 0,
+            archetype: this.store.ArchetypeName,
+          },
+        })
+        .then((response) => (this.store.cardList = response.data.data));
+    },
+  },
 
 }
 </script>
