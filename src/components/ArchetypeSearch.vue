@@ -4,12 +4,10 @@
             select archetype
         </option>
 
-        <option value="" v-for="archetype in store.ArchetypeLibrary ">
+        <option :value="archetype.archetype_name" v-for="archetype in store.ArchetypeLibrary ">
             {{ archetype.archetype_name }}
         </option>
-
-
-
+        
     </select>
 </template>
 
